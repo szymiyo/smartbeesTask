@@ -6,3 +6,39 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+label {
+    margin-bottom: 0 !important;
+}
+
+.v-application p {
+    margin-bottom: 0 !important;
+}
+
+.row {
+    width: 60% !important;
+    position: relative !important;
+    margin: 20px auto !important;
+}
+
+button {
+    width: 100%;
+}
+
+.header {
+    background-color:#a89f8f;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    padding: 18px 0;
+    text-align: center;
+}
+
+h6 {
+    color: white;
+    margin-bottom: 0 !important;
+}
+
+.deliveryimage {
+    max-width: 35px;
+}

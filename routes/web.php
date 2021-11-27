@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\DeliveryMethod;
+use App\Models\PaymentMethod;
+use App\Models\Products;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/checkout', function () {
+    $deliveryMethods = DeliveryMethod::all();
+    $paymentMethods = PaymentMethod::all();
+    $product = Products::where('id',1)->first();
+    return view('checkout', compact('deliveryMethods', 'paymentMethods', 'product'));
 });
+
+
+Route::get('/get/delivery_methods', 'DeliveryMethodController@getDeliveryMethods');
+Route::get('/get/payment_methods', 'PaymentMethodController@getPaymentMethods');
