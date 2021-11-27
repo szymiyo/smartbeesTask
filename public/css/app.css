@@ -10054,3 +10054,60 @@ h6 {
 .deliveryimage {
   max-width: 35px;
 }
+
+.product-image {
+  max-width: 60px;
+}
+
+.product {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #9fc2c3;
+  border-bottom-style: dashed;
+}
+
+.price {
+  margin-left: auto;
+  padding-right: 7px;
+  font-weight: bold;
+}
+
+.product-about {
+  padding-left: 10px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.sum {
+  display: flex;
+  font-weight: bold;
+}
+
+.sum-partial {
+  display: flex;
+}
+
+.amount {
+  margin-left: auto;
+}
+
+.amounts {
+  padding: 7px;
+  border-bottom: 1px solid #9fc2c3;
+  border-bottom-style: dashed;
+}
+
+.v-textarea {
+  padding-top: 10px;
+}
+
+.v-textarea.v-text-field--solo {
+  padding-top: 14px !important;
+}
+
+.checkbox-summary .v-label {
+  font-size: 11px;
+}

@@ -2209,6 +2209,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -38844,24 +38857,49 @@ var render = function () {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("img", {
-        staticClass: "deliveryimage",
-        attrs: { src: _vm.$checkout.product.photo },
-      }),
+      _c("div", { staticClass: "product" }, [
+        _c("img", {
+          staticClass: "product-image",
+          attrs: { src: _vm.$checkout.product.photo },
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "product-about" }, [
+          _c("p", { staticClass: "product-name" }, [
+            _vm._v(_vm._s(_vm.$checkout.product.name)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Ilość: 1")]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "price" }, [
+          _vm._v(_vm._s(_vm.$checkout.product.amount) + " zł"),
+        ]),
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.$checkout.product.name))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Ilosc stala 1 ")]),
-      _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.$checkout.product.amount))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Suma częściowa")]),
+      _c("div", { staticClass: "amounts" }, [
+        _c("div", { staticClass: "sum-partial" }, [
+          _c("p", [_vm._v("Suma częściowa")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "amount" }, [
+            _vm._v(_vm._s(_vm.$checkout.product.amount) + " zł"),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "sum" }, [
+          _c("p", [_vm._v("Łącznie")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "amount" }, [
+            _vm._v(_vm._s(_vm.$checkout.product.amount) + " zł"),
+          ]),
+        ]),
+      ]),
       _vm._v(" "),
       _c("v-textarea", {
         attrs: { solo: "", name: "input-7-4", label: "Komentarz" },
       }),
       _vm._v(" "),
       _c("v-checkbox", {
+        staticClass: "checkbox-summary",
         attrs: { label: "Zapisz się, aby otrzymywać newsletter" },
         model: {
           value: _vm.$checkout.newsletter,
@@ -38873,6 +38911,7 @@ var render = function () {
       }),
       _vm._v(" "),
       _c("v-checkbox", {
+        staticClass: "checkbox-summary",
         attrs: { label: "Zapoznałam/em się z Regulaminem zakupów" },
         model: {
           value: _vm.$checkout.statute,
