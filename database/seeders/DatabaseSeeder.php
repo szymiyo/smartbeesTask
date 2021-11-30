@@ -64,5 +64,11 @@ class DatabaseSeeder extends Seeder
             'value' => '20.01',
             'is_active' => 0
         ]);
+
+        DB::table('products')->insert([
+            'name' => 'Produkt testowy',
+            'amount' => '231.98',
+            'photo' => 'https://thumbs.img-sprzedajemy.pl/1000x901c/5d/e5/7a/kosiarka-traktorek-master-cut-kosz-briggs-dolnoslaskie-boleslawiec-548394144.jpg'
+        ]);
     }
 }
