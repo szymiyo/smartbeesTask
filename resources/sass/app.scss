@@ -7,6 +7,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
 label {
     margin-bottom: 0 !important;
 }
@@ -72,6 +73,7 @@ h6 {
 .sum {
     display: flex;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .sum-partial {
@@ -84,7 +86,7 @@ h6 {
 
 .amounts {
     padding: 7px;
-    border-bottom: 1px solid #9fc2c3;
+    
     border-bottom-style: dashed;
 }
 
@@ -98,4 +100,106 @@ h6 {
 
 .checkbox-summary .v-label{
     font-size: 11px;
+}
+
+.checkbox-summary{
+    margin-top: 0px !important;
+}
+
+.order-message {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acc-question {
+    font-size: 11px;
+    padding-top: 7px;
+    text-align: center;
+}
+
+.confirmation-btn{
+    height: 55px !important;
+    color: #fff;
+}
+
+.shipping-address {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+}
+
+.deliver-value {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.deliver-name, .payment-name {
+    font-size :14px;
+    padding-left: 5px;
+}
+
+.order {
+    border: 7px solid #41a145;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.image {
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.details {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 2px solid #41a145;
+    border-bottom: 2px solid #41a145;
+}
+
+.client-names {
+    width: 50%;
+}
+
+.client-address {
+    width: 49%;
+}
+
+h1 {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.prices {
+    padding-top: 20px;
+}
+
+.pad {
+    padding-left: 8px;
+}
+
+h4 {
+    text-align: right;
+    color: #41a145;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.v-application {
+    font-family: "Nunito", sans-serif !important;
+    line-height: 1.5;
+}
+
+/* Responsive CSS Rules */
+
+@media only screen and (max-width: 600px) {
+
+    .order-message{
+        padding: 10px;
+    }
 }

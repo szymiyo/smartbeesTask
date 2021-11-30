@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->integer('payment_method_id');
             $table->integer('delivery_method_id');
             $table->longText('items');
-            $table->longText('comment');
+            $table->longText('comment')->nullable(true);
             $table->boolean('newsletter');
             $table->timestamps();
         });

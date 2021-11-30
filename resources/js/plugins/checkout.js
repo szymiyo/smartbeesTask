@@ -11,7 +11,15 @@ export default {
             new_account: false,
             billing_address: false,
             statute: false,
-            newsletter: false
+            newsletter: false,
+            comment: '',
+            step: 1,
+            discount: 0,
+            order_id: 0,
+            code: null,
+            code_error: null,
+            used_code: null,
+            dialog: false
         }
     },
     methods:{
@@ -26,11 +34,8 @@ export default {
             this.product=product;
         },
         createOrder(){
+            console.log(this.new_account);
             if(this.new_account == true){
-                if(!this.address.email || this.address.email.length==0 || !this.address.email.match(/^\S+@\S+\.\S+$/)){
-                    alert('Niepoprawny e-mail.')
-                    return false;
-                }
                 if(!this.address.password || this.address.password.length <8){
                     alert('Hasło musi zawierać minimum 8 znaków.')
                     return false;
@@ -40,12 +45,20 @@ export default {
                     return false;
                 }
             }
-            if(!this.address.name || this.address.name.length < 3 || !this.address.name.match(/^[A-Za-z]+$/)){
-                alert('Zły format imienia.')
+            if(!this.address.email || this.address.email.length==0 || !this.address.email.match(/^\S+@\S+\.\S+$/)){
+                alert('Niepoprawny e-mail.')
+                return false;
+            }
+            if(!this.address.name || !this.address.name.match(/^[A-Za-z]+$/)){
+                alert('Imię nie może być puste.')
                 return false;
             }
             if(!this.address.surname || this.address.surname.length <3 || !this.address.surname.match(/^[A-Za-z]+$/)){
                 alert('Zły format nazwiska.')
+                return false;
+            }
+            if(!this.address.country){
+                alert('Należy wybrać kraj.')
                 return false;
             }
             if(!this.address.address || this.address.address.length <5){
@@ -64,6 +77,48 @@ export default {
                 alert('Zły format numeru telefonu.')
                 return false;
             }
+            let data = {
+                address: this.address,
+                payment_method: this.payment_method,
+                delivery_method: this.delivery_method,
+                billing_address: this.billing_address,
+                newsletter: this.newsletter,
+                item: this.product,
+                comment: this.comment,
+                create_account: this.new_account,
+                final_price: this.finalPrice
+            }
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: 'http://127.0.0.1:8000/create/order',
+                data: data
+            }).then(res=>{
+                this.step=2;
+                this.order_id=res;
+            })
+        },
+        checkCode(){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'GET',
+                url: 'http://127.0.0.1:8000/coupon/active/' + this.code,
+            }).then(res=>{
+                if(res.isValid){
+                    this.used_code = this.code;
+                    this.discount = res.amount;
+                    this.code_error = null;
+                }else{
+                    this.used_code = null;
+                    this.discount = 0;
+                    this.code_error = res.error;
+                }
+                console.log(res);
+            })
         }
     },
     computed:{
@@ -78,6 +133,16 @@ export default {
                 }
             }
             return false;
+        },
+        finalPrice(){
+            let price = 0;
+            price += this.product.amount;
+            if(this.delivery_method) price += this.delivery_method.value;
+            if(this.discount > 0 && this.code) price -= this.discount;
+            if(price < 0){
+                return 0;
+            }
+            return price.toFixed(2);
         }
     }
 

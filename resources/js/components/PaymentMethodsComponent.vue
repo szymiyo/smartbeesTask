@@ -13,10 +13,13 @@
             >
             <template slot="label">
                 <img v-bind:src="`${payment.photo}`" class="deliveryimage">
-                <p>{{payment.name}}</p> 
+                <p class="payment-name">{{payment.name}}</p> 
             </template>
             </v-radio>
         </v-radio-group>
+        <v-text-field class="no--validation" dense label="Kod rabatowy" outlined v-model="$checkout.code"></v-text-field>
+        <p class="acc-question" v-if='$checkout.code_error' style="color: red;">{{$checkout.code_error}}</p>
+        <v-btn color='red' outlined dark @click='$checkout.checkCode'>{{$checkout.code && $checkout.discount > 0 ? 'Zmień kod rabatowy' : 'Dodaj kod rabatowy'}}</v-btn>
        </div>
     </div>
 </template>

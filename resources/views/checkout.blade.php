@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 
-<div class="row">
+<div class="row" v-if="$checkout && $checkout.step == 1">
     <div class="col-md-4">
         <address-component></address-component>
     </div>
@@ -13,6 +13,12 @@
         <summary-component></summary-component>
     </div>
 </div>
+
+<div class="order-message" v-else-if="$checkout && $checkout.step == 2">
+    <show-order-component></show-order-component>
+</div>
+
+<div v-else></div>
 
 @endsection
 

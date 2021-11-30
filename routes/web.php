@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\DeliveryMethod;
 use App\Models\PaymentMethod;
 use App\Models\Products;
+use App\Models\Orders;
 
 
 /*
@@ -28,3 +29,6 @@ Route::get('/checkout', function () {
 
 Route::get('/get/delivery_methods', 'DeliveryMethodController@getDeliveryMethods');
 Route::get('/get/payment_methods', 'PaymentMethodController@getPaymentMethods');
+Route::get('/coupon/active/{code}', 'CodesController@isValidCode');
+
+Route::post('/create/order', 'OrderController@createOrder');

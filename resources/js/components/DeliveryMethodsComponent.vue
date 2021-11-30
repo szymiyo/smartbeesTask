@@ -11,8 +11,9 @@
             >
             <template slot="label">
                 <img v-bind:src="`${deliver.photo}`" class="deliveryimage">
-                <p>{{deliver.name}}</p>
-                <p>{{deliver.value}} zł</p> 
+                <p class="deliver-name">{{deliver.name}}</p>
+                <v-spacer></v-spacer>
+                <p class="deliver-value">{{deliver.value.toFixed(2)}} zł</p> 
             </template>
             </v-radio>
         </v-radio-group>

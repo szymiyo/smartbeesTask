@@ -25,6 +25,8 @@ Vue.component('address-component', require('./components/AddressComponent.vue').
 Vue.component('delivery-methods-component', require('./components/DeliveryMethodsComponent.vue').default);
 Vue.component('payment-methods-component', require('./components/PaymentMethodsComponent.vue').default);
 Vue.component('summary-component', require('./components/SummaryComponent.vue').default);
+Vue.component('show-order-component', require('./components/ShowOrderComponent.vue').default);
+
 
 
 /**
