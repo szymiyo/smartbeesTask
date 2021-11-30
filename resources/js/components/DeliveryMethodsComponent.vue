@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="header">
+            <v-icon>mdi-truck-fast mdi-light</v-icon>
             <h6>2. Metoda dostawy </h6>
         </div>
         <v-radio-group v-model="$checkout.delivery_method" v-if='$checkout && $checkout.deliveryMethods'>

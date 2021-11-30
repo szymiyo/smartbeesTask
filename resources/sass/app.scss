@@ -38,6 +38,8 @@ button {
 h6 {
     color: white;
     margin-bottom: 0 !important;
+    display: inline;
+    font-weight: bold;
 }
 
 .deliveryimage {
@@ -123,7 +125,7 @@ h6 {
 
 .confirmation-btn{
     height: 55px !important;
-    color: #fff;
+    color: #fff !important;
 }
 
 .shipping-address {
@@ -195,11 +197,26 @@ h4 {
     line-height: 1.5;
 }
 
-/* Responsive CSS Rules */
+.v-application--is-ltr .v-card__actions>.v-btn.v-btn+.v-btn {
+    margin-left: 0px !important; 
+}
 
-@media only screen and (max-width: 600px) {
+.v-card__actions {
+    display: block !important;
+}
 
-    .order-message{
-        padding: 10px;
+.v-dialog>.v-card>.v-card__text {
+    padding: 40px 24px 0px !important;
+}
+
+
+@media only screen and (max-width: 992px) {
+    
+    .row {
+        width: 70% !important;
+    }
+
+    .order-message {
+        padding: 5px !important;
     }
 }

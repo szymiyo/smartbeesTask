@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="header">
+            <v-icon>mdi-account mdi-light</v-icon>
             <h6>1. Twoje dane</h6>
         </div>
         <v-btn color='red' outlined dark @click='$checkout.dialog = true'>Logowanie</v-btn>
@@ -40,19 +41,20 @@
             <v-divider></v-divider>
 
             <v-card-actions>
-            <v-btn
-                color="red"
-                @click="$checkout.dialog = false"
-                text
-            >
-                Anuluj
-            </v-btn>
+           
             <v-btn
                 color="primary"
                 @click="$checkout.dialog = false"
                 text
             >
                 Zaloguj
+            </v-btn>
+             <v-btn
+                color="red"
+                @click="$checkout.dialog = false"
+                text
+            >
+                Anuluj
             </v-btn>
             </v-card-actions>
         </v-card>

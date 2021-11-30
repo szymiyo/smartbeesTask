@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="header">
+            <v-icon>mdi-clipboard-text mdi-light</v-icon>
             <h6>4. Podsumowanie</h6>
         </div>
         <div class="product">
@@ -9,20 +10,20 @@
                 <p class="product-name">{{$checkout.product.name}}</p>
                 <p>Ilość: 1</p>
             </div>
-            <p class="price">{{$checkout.product.amount}} zł</p>
+            <p class="price">{{$checkout.product.amount.toFixed(2)}} zł</p>
         </div>
         <div class="amounts">
             <div class="sum-partial">
                 <p>Suma częściowa</p>
-                <p class="amount">{{$checkout.product.amount}} zł</p>
+                <p class="amount">{{$checkout.product.amount.toFixed(2)}} zł</p>
             </div>
             <div class="sum-partial" v-if="$checkout.delivery_method">
                 <p>Dostawa</p>
-                <p class="amount">{{$checkout.delivery_method.value}} zł</p>
+                <p class="amount">{{$checkout.delivery_method.value.toFixed(2)}} zł</p>
             </div>
             <div class="sum-partial" v-if="$checkout.code && $checkout.discount > 0">
                 <p>Kod rabatowy: {{$checkout.used_code}}</p>
-                <p class="amount">{{$checkout.discount}} zł</p>
+                <p class="amount">{{$checkout.discount.toFixed(2)}} zł</p>
             </div>
             <div class="sum">
                 <p>Łącznie</p>

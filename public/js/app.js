@@ -2128,6 +2128,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2169,6 +2171,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2188,6 +2191,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -2283,6 +2287,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -38732,7 +38737,16 @@ var render = function () {
   return _c(
     "div",
     [
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "header" },
+        [
+          _c("v-icon", [_vm._v("mdi-account mdi-light")]),
+          _vm._v(" "),
+          _c("h6", [_vm._v("1. Twoje dane")]),
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "v-btn",
@@ -38949,19 +38963,6 @@ var render = function () {
                   _c(
                     "v-btn",
                     {
-                      attrs: { color: "red", text: "" },
-                      on: {
-                        click: function ($event) {
-                          _vm.$checkout.dialog = false
-                        },
-                      },
-                    },
-                    [_vm._v("\n            Anuluj\n        ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
                       attrs: { color: "primary", text: "" },
                       on: {
                         click: function ($event) {
@@ -38970,6 +38971,19 @@ var render = function () {
                       },
                     },
                     [_vm._v("\n            Zaloguj\n        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "red", text: "" },
+                      on: {
+                        click: function ($event) {
+                          _vm.$checkout.dialog = false
+                        },
+                      },
+                    },
+                    [_vm._v("\n            Anuluj\n        ")]
                   ),
                 ],
                 1
@@ -38984,16 +38998,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header" }, [
-      _c("h6", [_vm._v("1. Twoje dane")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39019,7 +39024,16 @@ var render = function () {
   return _c(
     "div",
     [
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "header" },
+        [
+          _c("v-icon", [_vm._v("mdi-truck-fast mdi-light")]),
+          _vm._v(" "),
+          _c("h6", [_vm._v("2. Metoda dostawy ")]),
+        ],
+        1
+      ),
       _vm._v(" "),
       _vm.$checkout && _vm.$checkout.deliveryMethods
         ? _c(
@@ -39070,16 +39084,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header" }, [
-      _c("h6", [_vm._v("2. Metoda dostawy ")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39107,7 +39112,16 @@ var render = function () {
       ? _c(
           "div",
           [
-            _vm._m(0),
+            _c(
+              "div",
+              { staticClass: "header" },
+              [
+                _c("v-icon", [_vm._v("mdi-credit-card mdi-light")]),
+                _vm._v(" "),
+                _c("h6", [_vm._v("3. Metoda płatności")]),
+              ],
+              1
+            ),
             _vm._v(" "),
             _vm.$checkout && _vm.$checkout.paymentMethods
               ? _c(
@@ -39192,16 +39206,7 @@ var render = function () {
       : _vm._e(),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header" }, [
-      _c("h6", [_vm._v("3. Metoda płatności")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39283,22 +39288,21 @@ var render = function () {
         _c("h3", [_vm._v("Podsumowanie")]),
         _vm._v(" "),
         _c("p", { staticClass: "pad" }, [
-          _vm._v("Cena: " + _vm._s(_vm.$checkout.product.amount)),
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "pad" }, [
-          _vm._v("Dostawa: " + _vm._s(_vm.$checkout.delivery_method.value)),
+          _vm._v(
+            "Cena: " + _vm._s(_vm.$checkout.product.amount.toFixed(2)) + " zł"
+          ),
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "pad" }, [
           _vm._v(
-            "Rabat: " +
-              _vm._s(
-                _vm.$checkout.product.amount +
-                  _vm.$checkout.delivery_method.value -
-                  _vm.$checkout.finalPrice
-              )
+            "Dostawa: " +
+              _vm._s(_vm.$checkout.delivery_method.value.toFixed(2)) +
+              " zł"
           ),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "pad" }, [
+          _vm._v("Rabat: " + _vm._s(_vm.$checkout.discount.toFixed(2)) + " zł"),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "all" }, [
@@ -39334,7 +39338,16 @@ var render = function () {
   return _c(
     "div",
     [
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "header" },
+        [
+          _c("v-icon", [_vm._v("mdi-clipboard-text mdi-light")]),
+          _vm._v(" "),
+          _c("h6", [_vm._v("4. Podsumowanie")]),
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "product" }, [
         _c("img", {
@@ -39351,7 +39364,7 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "price" }, [
-          _vm._v(_vm._s(_vm.$checkout.product.amount) + " zł"),
+          _vm._v(_vm._s(_vm.$checkout.product.amount.toFixed(2)) + " zł"),
         ]),
       ]),
       _vm._v(" "),
@@ -39360,7 +39373,7 @@ var render = function () {
           _c("p", [_vm._v("Suma częściowa")]),
           _vm._v(" "),
           _c("p", { staticClass: "amount" }, [
-            _vm._v(_vm._s(_vm.$checkout.product.amount) + " zł"),
+            _vm._v(_vm._s(_vm.$checkout.product.amount.toFixed(2)) + " zł"),
           ]),
         ]),
         _vm._v(" "),
@@ -39369,7 +39382,9 @@ var render = function () {
               _c("p", [_vm._v("Dostawa")]),
               _vm._v(" "),
               _c("p", { staticClass: "amount" }, [
-                _vm._v(_vm._s(_vm.$checkout.delivery_method.value) + " zł"),
+                _vm._v(
+                  _vm._s(_vm.$checkout.delivery_method.value.toFixed(2)) + " zł"
+                ),
               ]),
             ])
           : _vm._e(),
@@ -39381,7 +39396,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "amount" }, [
-                _vm._v(_vm._s(_vm.$checkout.discount) + " zł"),
+                _vm._v(_vm._s(_vm.$checkout.discount.toFixed(2)) + " zł"),
               ]),
             ])
           : _vm._e(),
@@ -39451,16 +39466,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header" }, [
-      _c("h6", [_vm._v("4. Podsumowanie")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -2,6 +2,7 @@
     <div>
        <div v-if="$checkout">
         <div class="header">
+            <v-icon>mdi-credit-card mdi-light</v-icon>
             <h6>3. Metoda płatności</h6>
         </div>
         <v-radio-group v-model="$checkout.payment_method" v-if='$checkout && $checkout.paymentMethods'>

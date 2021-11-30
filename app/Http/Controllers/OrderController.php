@@ -13,7 +13,7 @@ class OrderController extends Controller
 {
     public function createOrder(Request $request){
 
-        if($request->create_account){
+        if($request->create_account && isset($request->address['password'])){
             $user = User::create([
                 'name'=>$request->address['name']. ' ' .$request->address['surname'],
                 'email'=>$request->address['email'],
@@ -36,7 +36,7 @@ class OrderController extends Controller
         $order->items=json_encode($request->item);
         $order->comment=$request->comment;
         $order->newsletter=$request->newsletter?1:0;
-        $order->user_id=$user?$user->id:NULL;
+        $order->user_id=isset($user) ?$user->id:NULL;
         $order->save();
         return $order->id;
 

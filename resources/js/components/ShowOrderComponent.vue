@@ -18,9 +18,9 @@
             </div>
             <div class="prices">
                 <h3>Podsumowanie</h3>
-                <p class="pad">Cena: {{$checkout.product.amount}}</p>
-                <p class="pad">Dostawa: {{$checkout.delivery_method.value}}</p>
-                <p class="pad">Rabat: {{$checkout.product.amount + $checkout.delivery_method.value - $checkout.finalPrice}}</p>
+                <p class="pad">Cena: {{$checkout.product.amount.toFixed(2)}} zł</p>
+                <p class="pad">Dostawa: {{$checkout.delivery_method.value.toFixed(2)}} zł</p>
+                <p class="pad">Rabat: {{$checkout.discount.toFixed(2)}} zł</p>
                 <div class="all">
                     <h4>{{$checkout.finalPrice}} ZŁ</h4>
                 </div>
