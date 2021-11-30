@@ -39439,8 +39439,8 @@ var render = function () {
                 color: "red",
                 disabled:
                   !_vm.$checkout.statute &&
-                  _vm.$checkout.delivery_method &&
-                  _vm.$checkout.payment_method,
+                  !_vm.$checkout.delivery_method &&
+                  !_vm.$checkout.payment_method,
               },
               on: { click: _vm.$checkout.createOrder },
             },
