@@ -37,7 +37,7 @@
         ></v-textarea>
         <v-checkbox class="checkbox-summary" v-model="$checkout.newsletter" :label="'Zapisz się, aby otrzymywać newsletter'"></v-checkbox>
         <v-checkbox class="checkbox-summary" v-model="$checkout.statute" :label="'Zapoznałam/em się z Regulaminem zakupów'"></v-checkbox>
-        <v-btn class="confirmation-btn" color='red' @click='$checkout.createOrder' v-if="$checkout" :disabled="!$checkout.statute && !$checkout.delivery_method && !$checkout.payment_method">Potwierdź zakup</v-btn>
+        <v-btn class="confirmation-btn" color='red' @click='$checkout.createOrder' v-if="$checkout" :disabled="!$checkout.statute || !$checkout.delivery_method || !$checkout.payment_method">Potwierdź zakup</v-btn>
     </div>
 </template>
 

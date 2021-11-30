@@ -39438,8 +39438,8 @@ var render = function () {
               attrs: {
                 color: "red",
                 disabled:
-                  !_vm.$checkout.statute &&
-                  !_vm.$checkout.delivery_method &&
+                  !_vm.$checkout.statute ||
+                  !_vm.$checkout.delivery_method ||
                   !_vm.$checkout.payment_method,
               },
               on: { click: _vm.$checkout.createOrder },
